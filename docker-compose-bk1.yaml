@@ -27,19 +27,5 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  postgresql-studio:
-    image: postgresqlstudio/postgresqlstudio:latest
-    container_name: postgresql-studio
-    ports:
-      - "8081:8080"  # ここでポート8081を開放
-    environment:
-      POSTGRES_HOST: db  # Postgresサービスに接続
-      POSTGRES_PORT: 5432
-      POSTGRES_USER: metabase
-      POSTGRES_PASSWORD: metabase
-      POSTGRES_DB: metabase
-    depends_on:
-      - db
-
 volumes:
   postgres_data:
